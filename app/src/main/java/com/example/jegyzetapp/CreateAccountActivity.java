@@ -1,8 +1,5 @@
 package com.example.jegyzetapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -10,14 +7,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.regex.Pattern;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -57,7 +54,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     void createAccountInFirebase(String email, String password) {
-        ChangeInProgress(true);
+        changeInProgress(true);
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth
@@ -65,24 +62,24 @@ public class CreateAccountActivity extends AppCompatActivity {
                 .addOnCompleteListener(CreateAccountActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        ChangeInProgress(false);
+                        changeInProgress(false);
 
                         if (task.isSuccessful()) {
-                            // success
-                            Toast.makeText(CreateAccountActivity.this, "Sikeres regisztráció!\nEmail megerősítése szükséges.", Toast.LENGTH_SHORT).show();
+                            // sikeres regisztráció
+                            Utility.showToast(CreateAccountActivity.this, "Sikeres regisztráció!\nEmail megerősítése szükséges.");
                             firebaseAuth.getCurrentUser().sendEmailVerification();
                             firebaseAuth.signOut();
                             finish();
 
                         } else {
-                            // failure
-                            Toast.makeText(CreateAccountActivity.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                            // hiba a regisztrációnál
+                            Utility.showToast(CreateAccountActivity.this, task.getException().getLocalizedMessage());
                         }
                     }
                 });
     }
 
-    void ChangeInProgress(boolean inProgress) {
+    void changeInProgress(boolean inProgress) {
         if (inProgress) {
             progressBar.setVisibility(View.VISIBLE);
             createAccountBtn.setVisibility(View.GONE);
