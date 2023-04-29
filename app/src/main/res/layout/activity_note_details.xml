@@ -80,4 +80,21 @@
             />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/delete_note_text_view_btn"
+        android:text="Jegyzet törlése"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="24sp"
+        android:textColor="#FF4040"
+        android:textStyle="bold"
+        android:shadowColor="@color/white"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:shadowRadius="3"
+        />
+
 </RelativeLayout>
