@@ -1,6 +1,12 @@
 package com.example.jegyzetapp;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -11,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -61,12 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                 changeInProgress(false);
 
                 if (task.isSuccessful()) {
-                    // sikeres login
+                    // sikeres bejelentkezés
                     if (firebaseAuth.getCurrentUser().isEmailVerified()) {
-                        // go to mainactivity
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        showFloatingNotification("Emlékeztető", "Kérlek olvasd el a csatolt README fájlt!");
                     }
-
                     else {
                         Utility.showToast(LoginActivity.this, "Az email cím nincs megerősítve!");
                     }
@@ -77,6 +83,34 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void showFloatingNotification(String title, String message) {
+        String id = "emlekezteto";
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = manager.getNotificationChannel(id);
+            if (channel == null) {
+                channel = new NotificationChannel(id, "Channel Title", NotificationManager.IMPORTANCE_HIGH);
+                channel.setDescription("[Channel description]");
+                channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+                manager.createNotificationChannel(channel);
+            }
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, id)
+                .setSmallIcon(R.drawable.icon)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.readme))
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.readme))
+                        .bigLargeIcon(null))
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        manager.notify(0, builder.build());
     }
 
     void changeInProgress(boolean inProgress) {

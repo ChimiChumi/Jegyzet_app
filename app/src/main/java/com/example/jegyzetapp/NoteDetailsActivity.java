@@ -46,7 +46,7 @@ public class NoteDetailsActivity extends AppCompatActivity {
         contentEditText.setText(content);
 
         if(isEditMode){
-            pageTitleTextView.setTextSize(30);
+            pageTitleTextView.setTextSize(26);
             pageTitleTextView.setText("Jegyzet módosítása");
             deleteNoteTextViewBtn.setVisibility(View.VISIBLE);
         }
