@@ -86,6 +86,7 @@
         android:id="@+id/delete_note_text_view_btn"
         android:text="Jegyzet törlése"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:visibility="gone"
         android:textSize="24sp"
