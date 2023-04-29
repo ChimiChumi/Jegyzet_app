@@ -101,9 +101,9 @@ public class LoginActivity extends AppCompatActivity {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, id)
                 .setSmallIcon(R.drawable.icon)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.icon2))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.readme))
                 .setStyle(new NotificationCompat.BigPictureStyle()
-                        .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.icon2))
+                        .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.readme))
                         .bigLargeIcon(null))
                 .setContentTitle(title)
                 .setContentText(message)
