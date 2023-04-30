@@ -17,6 +17,7 @@ public class Utility {
     }
 
     static CollectionReference getCollectionReferenceForNotes(){
+        // regisztralt userek sajat notejainak lekerese
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         return FirebaseFirestore.getInstance()

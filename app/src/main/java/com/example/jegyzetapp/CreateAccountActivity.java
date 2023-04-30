@@ -90,7 +90,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     boolean validateData(String email, String password, String confirmPassword) {
-        // validate the data that are input by user
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             emailEditText.setError("Hibás email cím!");
             return false;

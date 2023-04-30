@@ -52,7 +52,6 @@ public class NoteDetailsActivity extends AppCompatActivity {
         }
 
         saveNoteBtn.setOnClickListener(v-> saveNote());
-
         deleteNoteTextViewBtn.setOnClickListener(v-> deleteNoteFromFirebase());
     }
 
@@ -82,7 +81,6 @@ public class NoteDetailsActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    // note is added
                     Utility.showToast(NoteDetailsActivity.this, "Jegyzet sikeresen hozzáadva");
                     finish();
                 }
@@ -101,7 +99,6 @@ public class NoteDetailsActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    // jegyzet törlése
                     Utility.showToast(NoteDetailsActivity.this, "Jegyzet sikeresen törölve!");
                     finish();
                 }
