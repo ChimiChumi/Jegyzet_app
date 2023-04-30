@@ -105,7 +105,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/form_layout"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
+            >
 
             <TextView
                 android:layout_width="wrap_content"

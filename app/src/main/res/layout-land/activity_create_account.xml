@@ -117,6 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/form_layout"
             android:gravity="center"
+            android:layout_marginBottom="8dp"
             android:orientation="horizontal">
 
             <TextView
@@ -131,7 +132,7 @@
                 android:text="Bejelentkezés"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
 

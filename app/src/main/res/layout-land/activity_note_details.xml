@@ -59,10 +59,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/notes_title_text"
             android:hint="Jegyzet címe"
+            android:justificationMode="inter_word"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginVertical="2dp"
-            android:padding="12dp"
+            android:paddingHorizontal="6dp"
             android:textColor="@color/black"
             />
 
@@ -71,11 +72,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/notes_content_text"
             android:hint="Tartalom"
+            android:justificationMode="inter_word"
             android:gravity="top"
             android:minLines="15"
             android:textSize="16sp"
             android:layout_marginBottom="6dp"
-            android:paddingHorizontal="18dp"
+            android:paddingHorizontal="8dp"
             android:textColor="@color/black"
             />
     </LinearLayout>
