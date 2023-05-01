@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1053021794574",
+    "project_id": "jegyzet-app",
+    "storage_bucket": "jegyzet-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053021794574:android:38bd55f7346ace2ea6675f",
+        "android_client_info": {
+          "package_name": "com.example.jegyzetapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053021794574-js8ohe50gohji0ougg7m8j6um26vo714.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1At4_8LOz0iE3FYXznfOPQb9rdoJRV4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053021794574-js8ohe50gohji0ougg7m8j6um26vo714.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
